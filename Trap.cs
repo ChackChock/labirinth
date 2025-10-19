@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class OpenScene : MonoBehaviour
+public class Trap : MonoBehaviour
 {
-    public int id;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene(id); 
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Destroy(collision.gameObject);  
+        }
     }
 }
